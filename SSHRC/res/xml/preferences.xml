@@ -25,13 +25,25 @@
         android:key="poweroff_category">
 
         <EditTextPreference
-            android:key="welcome_message"
-            android:title="Welcome Message" 
-            android:summary="Define the Welcome message to be shown"
-            android:dialogTitle="Welcome Message"
-            android:dialogMessage="Provide a message"    
-            android:defaultValue="Default welcome message" />
+            android:key="ssh_user"
+            android:title="User SSH" 
+            android:summary="SSH user use to shut down the server"
+            android:dialogTitle="User SSH" />
 
+	   <EditTextPreference
+            android:key="ssh_password"
+            android:title="Password SSH" 
+            android:summary="SSH password use to shut down the server"
+            android:inputType="textPassword"
+            android:dialogTitle="SSH Password" />
+
+	   <EditTextPreference
+            android:key="ssh_host"
+            android:title="Host" 
+            android:summary="Host for the ssh connection"
+            android:dialogTitle="Host" />
+	   
+        
     </PreferenceCategory>
     
 </PreferenceScreen>
