@@ -33,6 +33,9 @@ You can get it with a:
 
 You will also need to set the host, user and password for the ssh connection
 
+##Get the APK
+I put an apk file in the folder releasedapk
+
 ## Special thank
 Thanks to [jibble.org](http://www.jibble.org).
 I used there piece of code for the wake on lan part.
