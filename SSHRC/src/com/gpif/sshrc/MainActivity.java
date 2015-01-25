@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
 
 	protected String ip;
 	protected String mac;
+	protected String wol_port;
 	
 	protected String user;
 	protected String password;
@@ -41,13 +42,14 @@ public class MainActivity extends Activity {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 		this.ip = sharedPrefs.getString("ip_address", "-1");
 		this.mac = sharedPrefs.getString("mac_address", "-1");
+		this.wol_port = sharedPrefs.getString("port", "9");
 		
 		Button pon = (Button) findViewById(R.id.button_pon);
 		
 		pon.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new RunWol().execute(ip,mac);
+				new RunWol().execute(ip,mac,wol_port);
 			}
 		});
 
@@ -94,7 +96,7 @@ public class MainActivity extends Activity {
 
 		@Override
 		protected Void doInBackground(String... params) {
-			WOL wol = new WOL(params[0],params[1]);
+			WOL wol = new WOL(params[0],params[1],params[2]);
 			try {
 				wol.send();
 			} catch (Exception e) {

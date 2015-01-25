@@ -5,15 +5,22 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class WOL {
-    public static final int PORT = 9;
+    public int port;
     public String ip;
     public String mac;
 
-    public WOL(String _ip, String _mac) {
-      ip  = _ip;
-      mac = _mac;
+    public WOL(String _ip, String _mac, String _port) {
+      ip   = _ip;
+      mac  = _mac;
+      port = Integer.parseInt(_port);;
     }
 
+    public WOL(String _ip, String _mac) {
+        ip  = _ip;
+        mac = _mac;
+        port = 9;
+      }
+    
     public int send() {
       String ipStr = this.ip;
       String macStr = this.mac;
@@ -29,7 +36,7 @@ public class WOL {
           }
 
           InetAddress address = InetAddress.getByName(ipStr);
-          DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, PORT);
+          DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, port);
           DatagramSocket socket = new DatagramSocket();
           socket.send(packet);
           socket.close();

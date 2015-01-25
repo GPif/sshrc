@@ -16,7 +16,12 @@
             android:title="IP Address" 
             android:summary="IP Address of server for the wake on Lan package"
             android:dialogTitle="IP Address" />
-        
+        <EditTextPreference
+            android:key="port"
+            android:defaultValue="9"
+            android:title="Port" 
+            android:summary="Set the port for the wake on lan packet"
+            android:dialogTitle="Port" />      
         
     </PreferenceCategory>
 
